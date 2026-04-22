@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Penulis Junior: Misi Bina Buku Sendiri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .step-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .template-box {
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            position: relative;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.95);
+        }
+
+        #copyToast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #10b981;
+            color: white;
+            text-align: center;
+            border-radius: 50px;
+            padding: 12px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+        }
+
+        #copyToast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+        @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-book-open text-blue-600 text-2xl"></i>
+                <span class="text-xl font-bold tracking-tight text-blue-900">E-Penulis Junior</span>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex gap-6 font-medium text-slate-600">
+                    <li><a href="#mula" class="hover:text-blue-600">Mula</a></li>
+                    <li><a href="#template" class="hover:text-blue-600">Templat</a></li>
+                    <li><a href="#hantar" class="hover:text-blue-600">Hantar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-20" id="mula">
+            <span class="bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-4 inline-block">Bengkel Penulisan Digital</span>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Misi Bina Buku Sendiri 🚀</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Selamat datang, Penulis Junior! Ikuti 10 langkah mudah ini untuk mencipta buku digital pertama anda menggunakan kuasa AI dan kreativiti anda.</p>
+        </section>
+
+        <!-- Steps Timeline -->
+        <div class="space-y-12">
+
+            <!-- Step 1 -->
+            <div class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">1</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-robot text-blue-500"></i> Jom Bina Cerita dengan AI!
+                        </h3>
+                        <p class="text-slate-600 mb-6">Langkah pertama adalah menggunakan <strong>Gemini Storybook</strong>. AI ini akan membantu anda menyusun ayat dan melukis gambar untuk buku anda.</p>
+                        <a href="https://gemini.google.com/gem/storybook" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-bold inline-flex items-center gap-2 shadow-lg shadow-blue-200">
+                            Klik Sini untuk ke Gemini GEMS <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="template" class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">2</div>
+                    <div class="w-full">
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-copy text-blue-500"></i> Salin Templat Penulisan
+                        </h3>
+                        <p class="text-slate-600 mb-4">Gunakan templat ini untuk memberitahu AI apa jenis cerita yang anda mahukan.</p>
+                        
+                        <div class="template-box p-6 rounded-2xl mb-4 relative">
+                            <pre id="storyTemplate" class="whitespace-pre-wrap font-sans text-slate-700">Penulis: [Masukkan Nama Anda]
+Gagasan Utama Cerita: [Ceritakan secara ringkas plot cerita anda]
+Genre: [Contoh: Fiksyen, Sains, Misteri, dll.]
+Gaya Ilustrasi: [Contoh: Anime, Cat Air, Kartun, dll.]
+Watak & Latar: [Siapa watak utama dan di mana cerita berlaku?]
+
+Sila patuhi syarat ini:
+1. Buku MESTI mempunyai 8 muka surat.
+2. Mesti ada PENGAJARAN YANG BAIK untuk pembaca.
+3. Teks setiap halaman TIDAK MELEBIHI satu muka surat.
+4. Saiz fail akhir TIDAK MELEBIHI 300MB.</pre>
+                            <button onclick="copyTemplate()" class="absolute top-4 right-4 bg-slate-200 hover:bg-blue-600 hover:text-white p-3 rounded-xl transition-colors">
+                                <i class="fas fa-paste"></i> Salin Templat
+                            </button>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl">
+                            <p class="text-sm text-amber-800"><strong>Tip:</strong> Lepas salin, terus pergi ke Gemini GEMS tadi dan <strong>Paste</strong> (Ctrl+V) di ruangan mesej.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+                <div class="flex flex-col md:flex-row gap-6 text-left">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">3</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-download text-blue-500"></i> Simpan Hasil Karya
+                        </h3>
+                        <p class="text-slate-600">Klik butang <strong>Download</strong> pada skrin Gemini untuk simpan fail buku anda ke dalam peranti.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 & 5 -->
+            <div class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">4-5</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fa-brands fa-canva text-purple-600"></i> Muat Naik & Kongsi di Canva
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-sm font-bold">4</span>
+                                <p class="text-slate-600">Layari <a href="https://www.canva.com" class="text-blue-600 underline">Canva.com</a>, klik <strong>'Upload'</strong> dan pilih fail buku tadi.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-sm font-bold">5</span>
+                                <p class="text-slate-600">Klik <strong>'Share'</strong> > <strong>'More'</strong> > <strong>'Public View Link'</strong>. Salin pautan itu!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div id="hantar" class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden border-2 border-blue-200">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">6</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-university text-blue-500"></i> Perpustakaan Digital Sekolah
+                        </h3>
+                        <p class="text-slate-600 mb-6">Masa untuk pamerkan bakat anda kepada semua warga sekolah.</p>
+                        <a href="https://teacherfatinamirah.my.canva.site/sk-bukit-gambir-digital-library" target="_blank" class="bg-slate-800 text-white px-6 py-3 rounded-xl font-bold inline-flex items-center gap-2">
+                            Pergi ke Perpustakaan <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <p class="mt-4 text-sm italic">Klik <strong>'Tambah Buku'</strong> dan tampal pautan dari Canva tadi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">7</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-palette text-blue-500"></i> Cipta Kulit Buku (Cover)
+                        </h3>
+                        <div class="space-y-3">
+                            <p class="text-slate-600">Buka rekaan baru di Canva dengan saiz <strong>5.5 x 8.5 inci</strong>.</p>
+                            <p class="text-slate-600">Reka kulit yang menarik dan muat turun sebagai <strong>PNG</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="step-card bg-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">8</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fa-brands fa-google-drive text-green-600"></i> Pautan Gambar Kulit
+                        </h3>
+                        <p class="text-slate-600 mb-4">Upload gambar PNG kulit buku tadi ke <a href="https://drive.google.com" class="text-blue-600 underline">Google Drive</a>.</p>
+                        <div class="bg-blue-50 p-4 rounded-xl text-sm">
+                            <p><strong>Pastikan:</strong> Klik 'Share' > Ubah akses ke <strong>'Anyone with the link'</strong> sebelum salin link!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 9 & 10 -->
+            <div class="bg-blue-600 text-white p-10 rounded-3xl shadow-xl text-center relative">
+                <div class="w-20 h-20 bg-white text-blue-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg">🏆</div>
+                <h3 class="text-3xl font-bold mb-4">Langkah Akhir: Misi Selesai!</h3>
+                <p class="text-blue-100 mb-8 max-w-md mx-auto">Tampal link Google Drive tadi ke ruangan <strong>'Pautan Imej Kulit Buku'</strong> di borang perpustakaan dan klik <strong>Tambah Buku</strong>.</p>
+                <div class="inline-block bg-blue-500 px-8 py-4 rounded-2xl border-2 border-blue-400 font-bold text-xl">
+                    TAHNIAH, ANDA SEORANG PENULIS!
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-24 pt-12 border-t border-slate-200 text-center text-slate-500 pb-12">
+            <p>© 2026 E-Penulis Junior | Bengkel Bina Buku Digital</p>
+            <p class="mt-2 text-sm">Dibina khas untuk murid SK Bukit Gambir</p>
+        </footer>
+    </main>
+
+    <div id="copyToast">Berjaya Disalin! ✨</div>
+
+    <script>
+        function copyTemplate() {
+            const text = document.getElementById('storyTemplate').innerText;
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            const toast = document.getElementById("copyToast");
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+    </script>
+
+</body>
+</html>
